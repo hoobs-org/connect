@@ -1,0 +1,126 @@
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Montserrat Regular"), local("Montserrat-Regular"), url(montserrat.woff) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+    font-family: "Montserrat Black";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: local("Montserrat Black"), local("Montserrat-Black"), url(montserrat-black.woff) format("woff2");
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 12pt;
+    color: #515151;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
+.button {
+    background: #fff !important;
+    color: #777 !important;
+    text-decoration: none !important;
+    font-size: 12pt;
+    display: inline-block;
+    border: 1px #e5e5e5 solid;
+    outline: none !important;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    margin: 0;
+    white-space: pre;
+}
+
+.button-primary {
+    background: #feb400 !important;
+    color: #fff !important;
+    border: 1px #feb400 solid;
+}
+
+.button:hover {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+                0 2px 1px -1px rgba(0, 0, 0, 0.12),
+                0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.header {
+    width: 100%;
+    height: 7px;
+    min-height: 7px;
+    max-height: 7px;
+    background: #feb400;
+    user-select: none;
+    z-index: 200;
+}
+
+.layout {
+    flex: 1;
+    display: flex;
+    padding: 0;
+    background: #fff;
+}
+
+.container {
+    padding: 0 20px;
+    font-size: 12pt;
+    width: 100%;
+    max-width: 800px;
+    background: #fff;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.container h2 {
+    margin: 20px 0 5px 0;
+    padding: 0;
+    line-height: normal;
+    font-size: 22px;
+    color: #feb400;
+}
+
+.input-field {
+    margin-bottom: 20px !important;
+}
+
+.action {
+    padding: 0 0 20px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#connect-form {
+    padding: 20px 20px 0 20px;
+    margin: 20px 0;
+    border: 1px #e5e5e5 solid;
+    border-radius: 3px;
+}
+
+@media (min-width: 300px) and (max-width: 815px) {
+    #connect-form {
+        padding: 0;
+        border: 0 none;
+        border-radius: 0;
+    }
+}

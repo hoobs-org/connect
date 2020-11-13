@@ -1,0 +1,19 @@
+{
+    "name": "@hoobs/connect",
+    "version": "4.0.1",
+    "description": "WiFi connect portal interface.",
+    "license": "GPL-3.0",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/hoobs-org/connect.git"
+    },
+    "bugs": {
+        "url": "https://github.com/hoobs-org/connect/issues"
+    },
+    "author": {
+        "name": "Michael J Kellsy"
+    },
+    "scripts": {
+        "build": "./build"
+    }
+}
