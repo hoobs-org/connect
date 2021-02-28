@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+
+/**************************************************************************************************
+ * hoobs-sdk                                                                                      *
+ * Copyright (C) 2020 HOOBS                                                                       *
+ *                                                                                                *
+ * This program is free software: you can redistribute it and/or modify                           *
+ * it under the terms of the GNU General Public License as published by                           *
+ * the Free Software Foundation, either version 3 of the License, or                              *
+ * (at your option) any later version.                                                            *
+ *                                                                                                *
+ * This program is distributed in the hope that it will be useful,                                *
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of                                 *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                                  *
+ * GNU General Public License for more details.                                                   *
+ *                                                                                                *
+ * You should have received a copy of the GNU General Public License                              *
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.                          *
+ **************************************************************************************************/
+
+const Program = require("commander");
+const { join } = require("path");
+const { execSync } = require("child_process");
+
+const {
+    existsSync,
+    mkdirSync,
+    readFileSync,
+    unlinkSync,
+} = require("fs");
+
+const root = join(__dirname, "../");
+const pjson = JSON.parse(readFileSync(join(root, "package.json")).toString());
+
+Program.version(pjson.version, "-v, --version", "output the current version")
+    .allowUnknownOption();
+
+Program.command("connect", { isDefault: true })
+    .description("build hoobs wifi connect interface")
+    .action(() => {
+        if (!existsSync(join(root, "builds"))) mkdirSync(join(root, "builds"));
+
+        execSync(`${join(root, "node_modules", ".bin", "rimraf")} ${join(root, "builds")}`, { cwd: root, stdio: "inherit" });
+
+        mkdirSync(join(root, "builds"));
+
+        execSync("cp -R ./ui ./builds/", { cwd: root, stdio: "inherit" });
+        execSync("tar -cvzf ui.tar.gz ./ui/*", { cwd: join(root, "builds"), stdio: "inherit" });
+
+        mkdirSync(join(root, "builds/wifi-connect-hoobs"));
+
+        execSync("mv ./ui ./wifi-connect-hoobs/", { cwd: join(root, "builds"), stdio: "inherit" });
+        execSync("mv ./ui.tar.gz ./wifi-connect-hoobs/", { cwd: join(root, "builds"), stdio: "inherit" });
+        execSync(`tar -cvzf hoobs-connect-v${pjson.version}.tar.gz ./wifi-connect-hoobs/*`, { cwd: join(root, "builds"), stdio: "inherit" });
+
+        if (existsSync(join(root, "../builds", `hoobs-connect-v${pjson.version}.tar.gz`))) unlinkSync(join(root, "../builds", `hoobs-connect-v${pjson.version}.tar.gz`))
+
+        execSync(`mv ${join(root, "builds", `hoobs-connect-v${pjson.version}.tar.gz`)} ${join(root, "../builds", `hoobs-connect-v${pjson.version}.tar.gz`)}`, { cwd: root, stdio: "inherit" });
+        execSync(`${join(root, "node_modules", ".bin", "rimraf")} ${join(root, "builds")}`, { cwd: root, stdio: "inherit" });
+    });
+
+Program.parse(process.argv);
