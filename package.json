@@ -13,9 +13,6 @@
     "author": {
         "name": "Michael J Kellsy"
     },
-    "scripts": {
-        "build": "bin/build"
-    },
     "devDependencies": {
         "commander": "^7.1.0",
         "rimraf": "^3.0.2"
