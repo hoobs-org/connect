@@ -7,15 +7,6 @@
     unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
-@font-face {
-    font-family: "Montserrat Black";
-    font-style: normal;
-    font-weight: 900;
-    font-display: swap;
-    src: local("Montserrat Black"), local("Montserrat-Black"), url(montserrat-black.woff) format("woff2");
-    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-
 html {
     height: 100%;
 }
@@ -28,7 +19,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 12pt;
-    color: #515151;
+    color: #999;
+    background: #141414;
     display: flex;
     flex-direction: column;
 }
@@ -38,12 +30,12 @@ body {
 }
 
 .button {
-    background: #fff !important;
-    color: #777 !important;
+    background: #feb400 !important;
+    color: #fff !important;
     text-decoration: none !important;
     font-size: 12pt;
     display: inline-block;
-    border: 1px #e5e5e5 solid;
+    border: 1px #feb400 solid;
     outline: none !important;
     border-radius: 3px;
     padding: 10px;
@@ -53,50 +45,79 @@ body {
     white-space: pre;
 }
 
-.button-primary {
-    background: #feb400 !important;
-    color: #fff !important;
-    border: 1px #feb400 solid;
-}
-
 .button:hover {
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
                 0 2px 1px -1px rgba(0, 0, 0, 0.12),
                 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
-.header {
-    width: 100%;
-    height: 7px;
-    min-height: 7px;
-    max-height: 7px;
-    background: #feb400;
-    user-select: none;
-    z-index: 200;
-}
-
 .layout {
-    flex: 1;
     display: flex;
-    padding: 0;
-    background: #fff;
-}
-
-.container {
-    padding: 0 20px;
-    font-size: 12pt;
-    max-width: 790px !important;
-    background: #fff;
-    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    padding: 0 0 10% 0;
+    overflow: auto;
     box-sizing: border-box;
 }
 
-.container h2 {
-    margin: 20px 0 5px 0;
+.container {
+    font-size: 17px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 790px !important;
+    padding: 20px 20px 0 20px;
+    box-sizing: border-box;
+}
+
+.container .logo {
+    display: flex;
+    align-items: center;
+    padding: 0 7px 0 0;
+    margin: 0 10px 0 0;
+    border-right: 1px #474747 solid;
+}
+
+.container .logo svg {
+    margin: 0 5px 0 0;
+    user-select: none;
+}
+
+.container .logo svg .fill {
+    fill: #feb400;
+}
+
+.container .logo svg .text {
+    fill: #feb400;
+}
+
+.container .title {
+    display: flex;
+    align-items: center;
+    padding: 0 0 7px 0;
+    margin: 0 0 7px 0;
+    border-bottom: 1px #252525 solid;
+}
+
+.container h1 {
+    font-size: 20px;
+    font-weight: normal;
     padding: 0;
+    margin: 2px 0 0 0;
+    color: #feb400;
+}
+
+.container h2 {
+    margin: 0 0 5px 0;
+    padding: 0;
+    font-size: 17px;
     line-height: normal;
     font-size: 22px;
     color: #feb400;
+}
+
+.container p {
+    margin: 0;
 }
 
 .input-field {
@@ -111,16 +132,35 @@ body {
 
 #connect-form {
     max-width: 750px;
-    padding: 20px 20px 0 20px;
-    margin: 20px 0;
-    border: 1px #e5e5e5 solid;
-    border-radius: 3px;
+    margin: 20px 0 0 0;
+    padding: 30px 30px 10px 30px;
+    background: #ffffff14;
+}
+
+#submit-message {
+    max-width: 750px;
+    margin: 20px 0 0 0;
+    padding: 30px;
+    background: #ffffff14;
+}
+
+#no-networks-message {
+    max-width: 750px;
+    margin: 20px 0 0 0;
+    padding: 30px;
+    background: #ffffff14;
 }
 
 @media (min-width: 300px) and (max-width: 815px) {
-    #connect-form {
-        padding: 0;
-        border: 0 none;
-        border-radius: 0;
+    .layout {
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 10px 0 0 0;
+    }
+
+    .container {
+        margin: 0;
+        width: 100%;
+        padding: 20px 10px 0 10px;
     }
 }

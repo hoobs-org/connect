@@ -2036,11 +2036,11 @@
 }
 
 .grey {
-  background-color: #d4d4d4 !important;
+  background-color: #474747 !important;
 }
 
 .grey-text {
-  color: #d4d4d4 !important;
+  color: #474747 !important;
 }
 
 .grey.lighten-5 {
@@ -5985,7 +5985,7 @@ body.keyboard-focused .dropdown-content li:focus {
 
 .chips {
   border: none;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #474747;
   -webkit-box-shadow: none;
           box-shadow: none;
   margin: 0 0 8px 0;
@@ -6135,8 +6135,9 @@ input[type=number]:not(.browser-default),
 input[type=search]:not(.browser-default),
 textarea.materialize-textarea {
   background-color: transparent;
+  color: #fff;
   border: none;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #474747;
   border-radius: 0;
   outline: none;
   height: 3rem;
@@ -6209,7 +6210,7 @@ input[type=search]:not(.browser-default):disabled + label,
 input[type=search]:not(.browser-default)[readonly="readonly"] + label,
 textarea.materialize-textarea:disabled + label,
 textarea.materialize-textarea[readonly="readonly"] + label {
-  color: rgba(0, 0, 0, 0.42);
+  color: #999;
 }
 
 input:not([type]):focus:not([readonly]),
@@ -7173,7 +7174,7 @@ select {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #474747;
   outline: none;
   height: 3rem;
   line-height: 3rem;
@@ -7201,7 +7202,7 @@ select {
   bottom: 0;
   margin: auto 0;
   z-index: 0;
-  fill: rgba(0, 0, 0, 0.87);
+  fill: #999;
 }
 
 .select-wrapper + label {
@@ -8293,7 +8294,7 @@ input[type=range]::-ms-thumb {
 }
 
 .slider .slides {
-  background-color: #d4d4d4;
+  background-color: #474747;
   margin: 0;
   height: 400px;
 }
