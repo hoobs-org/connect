@@ -53,9 +53,9 @@ Program.command("connect", { isDefault: true })
         execSync("mv ./ui.tar.gz ./wifi-connect-hoobs/", { cwd: join(root, "builds"), stdio: "inherit" });
         execSync(`tar -cvzf hoobs-connect-v${pjson.version}.tar.gz ./wifi-connect-hoobs/*`, { cwd: join(root, "builds"), stdio: "inherit" });
 
-        if (existsSync(join(root, "../builds", `hoobs-connect-v${pjson.version}.tar.gz`))) unlinkSync(join(root, "../builds", `hoobs-connect-v${pjson.version}.tar.gz`))
+        if (existsSync(join(root, "../repo/src", `hoobs-connect-v${pjson.version}.tar.gz`))) unlinkSync(join(root, "../repo/src", `hoobs-connect-v${pjson.version}.tar.gz`))
 
-        execSync(`mv ${join(root, "builds", `hoobs-connect-v${pjson.version}.tar.gz`)} ${join(root, "../builds", `hoobs-connect-v${pjson.version}.tar.gz`)}`, { cwd: root, stdio: "inherit" });
+        execSync(`mv ${join(root, "builds", `hoobs-connect-v${pjson.version}.tar.gz`)} ${join(root, "../repo/src", `hoobs-connect-v${pjson.version}.tar.gz`)}`, { cwd: root, stdio: "inherit" });
         execSync(`${join(root, "node_modules", ".bin", "rimraf")} ${join(root, "builds")}`, { cwd: root, stdio: "inherit" });
     });
 
